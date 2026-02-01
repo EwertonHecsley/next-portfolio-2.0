@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💻 Portfólio Pessoal — Thiago Simas
 
-## Getting Started
+Este é o meu portfólio pessoal desenvolvido com **Next.js**, **TypeScript** e **Tailwind CSS**, com foco em performance, responsividade e boas práticas de desenvolvimento Front-end.
 
-First, run the development server:
+O projeto foi pensado para apresentar meus trabalhos, habilidades técnicas e informações de contato de forma clara, moderna e profissional.
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- **Next.js (App Router + Turbopack)**  
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion** (animações)
+- **Git & GitHub**
+
+---
+
+## 🎯 Principais Funcionalidades
+
+- Header responsivo com:
+  - Menu desktop
+  - Menu mobile animado (hambúrguer)
+  - Logo adaptável para telas pequenas  
+- Navegação por âncoras (`#hero`, `#about`, `#projects`, etc.)
+- Animações suaves com **Framer Motion**
+- Layout moderno com efeito de **glassmorphism**
+- Totalmente responsivo (mobile first)
+
+---
+
+## 📱 Responsividade
+
+O projeto foi desenvolvido seguindo o conceito **Mobile First**, garantindo boa experiência em diferentes tamanhos de tela.
+
+### Ajustes aplicados:
+- Logo completa exibida a partir de **360px**
+- Logo reduzida (`< TS Dev />`) em telas menores
+- Menu desktop exibido apenas a partir de **660px**
+- Menu mobile animado para telas menores
+
+---
+
+## 🧠 Organização do Projeto
 
 ```bash
+src/
+├── app/
+│   ├── components/
+│   │   └── Header.tsx
+│   ├── globals.css
+│   └── page.tsx
+├── public/
+└── tailwind.config.js
+
+components/ → Componentes reutilizáveis
+
+app/ → Estrutura principal do Next.js (App Router)
+
+globals.css → Estilos globais
+
+tailwind.config.js → Configuração do Tailwind CSS
+
+🎬 Demonstração:
+
+🔗 Deploy:(adicione aqui o link do Vercel ou GitHub Pages quando publicar)
+
+🛠️ Como Rodar o Projeto Localmente
+
+# Clone o repositório
+git clone https://github.com/thiagosimaswebdev/meuportfolio.git
+
+# Acesse a pasta
+cd seu-repositorio
+
+# Instale as dependências
+npm install
+
+# Rode o projeto
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O projeto estará disponível em:
+👉 http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+📌 Status do Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+✅ Em desenvolvimento
+🚀 Sempre recebendo melhorias e refatorações
+📚 Projeto com foco em aprendizado e evolução técnica
 
-## Learn More
+👨‍💻 Autor
 
-To learn more about Next.js, take a look at the following resources:
+Thiago Simas
+Graduando em Análise e Desenvolvimento de Sistemas
+Desenvolvedor Front-end em formação
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📎 GitHub: https://github.com/thiagosimaswebdev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📎 LinkedIn: (adicione quando quiser)
 
-## Deploy on Vercel
+⭐ Se este projeto te ajudou ou te inspirou, considere deixar uma estrela no repositório!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
