@@ -42,8 +42,11 @@ const skills = [
 
 export function Skills() {
   return (
-    <section id="skills" className="scroll-mt-28 py-28">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="skills"
+      className="scroll-mt-28 py-28 bg-white"
+    >
+      <div className="max-w-7xl mx-auto px-6">
 
         {/* TÍTULO */}
         <Reveal className="text-center mb-16">
@@ -60,13 +63,24 @@ export function Skills() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
           {skills.map((skill) => (
             <Reveal key={skill.name}>
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center hover:shadow-lg transition">
+              <div
+                className="
+                  bg-slate-50
+                  border border-slate-200
+                  rounded-2xl p-6
+                  text-center
+                  hover:shadow-lg
+                  transition
+                "
+              >
                 <div className="text-4xl mb-4">
                   {skill.icon}
                 </div>
+
                 <h3 className="font-semibold text-slate-900">
                   {skill.name}
                 </h3>
+
                 <p className="text-sm text-slate-600 mt-2">
                   {skill.description}
                 </p>
