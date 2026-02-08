@@ -69,7 +69,7 @@ tailwind.config.js → Configuração do Tailwind CSS
 🛠️ Como Rodar o Projeto Localmente
 
 # Clone o repositório
-git clone https://github.com/ewertonhecsley/meuportfolio-2.0.git
+git clone https://github.com/EwertonHecsley/meuportfolio-2.0.git
 
 # Acesse a pasta
 cd seu-repositorio
@@ -95,7 +95,7 @@ Thiago Simas
 Graduando em Análise e Desenvolvimento de Sistemas
 Desenvolvedor Front-end em formação
 
-📎 GitHub: https://github.com/ewertonhecsley
+📎 GitHub: https://github.com/EwertonHecsley
 
 📎 LinkedIn: https://www.linkedin.com/in/ewerton-hecsley-8a613992/
 
