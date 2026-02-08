@@ -36,7 +36,7 @@ O projeto foi desenvolvido seguindo o conceito **Mobile First**, garantindo boa 
 
 ### Ajustes aplicados:
 - Logo completa exibida a partir de **360px**
-- Logo reduzida (`< TS Dev />`) em telas menores
+- Logo reduzida (`< EH Dev />`) em telas menores
 - Menu desktop exibido apenas a partir de **660px**
 - Menu mobile animado para telas menores
 
