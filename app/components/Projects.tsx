@@ -55,7 +55,7 @@ export function Projects() {
           </h2>
           <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
             Alguns projetos desenvolvidos durante meus estudos e prática em
-            front-end, disponíveis no GitHub.
+            desenvolvimento full stack, disponíveis no GitHub.
           </p>
         </Reveal>
 
