@@ -91,8 +91,8 @@ O projeto estará disponível em:
 
 👨‍💻 Autor
 
-Thiago Simas
-Graduando em Análise e Desenvolvimento de Sistemas
+Ewerton Hecsley
+Graduando em Engenharia de Software
 Desenvolvedor Front-end em formação
 
 📎 GitHub: https://github.com/EwertonHecsley
