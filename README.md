@@ -1,4 +1,4 @@
-# 💻 Portfólio Pessoal — Thiago Simas
+# 💻 Portfólio Pessoal — Ewerton Hecsley
 
 Este é o meu portfólio pessoal desenvolvido com **Next.js**, **TypeScript** e **Tailwind CSS**, com foco em performance, responsividade e boas práticas de desenvolvimento Front-end.
 
@@ -64,12 +64,12 @@ tailwind.config.js → Configuração do Tailwind CSS
 
 🎬 Demonstração:
 
-🔗 Deploy:(adicione aqui o link do Vercel ou GitHub Pages quando publicar)
+🔗 Deploy: Em breve
 
 🛠️ Como Rodar o Projeto Localmente
 
 # Clone o repositório
-git clone https://github.com/thiagosimaswebdev/meuportfolio.git
+git clone https://github.com/ewertonhecsley/meuportfolio-2.0.git
 
 # Acesse a pasta
 cd seu-repositorio
@@ -95,9 +95,9 @@ Thiago Simas
 Graduando em Análise e Desenvolvimento de Sistemas
 Desenvolvedor Front-end em formação
 
-📎 GitHub: https://github.com/thiagosimaswebdev
+📎 GitHub: https://github.com/ewertonhecsley
 
-📎 LinkedIn: (adicione quando quiser)
+📎 LinkedIn: https://www.linkedin.com/in/ewerton-hecsley-8a613992/
 
 ⭐ Se este projeto te ajudou ou te inspirou, considere deixar uma estrela no repositório!
 
