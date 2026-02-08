@@ -8,22 +8,39 @@ const projects = [
     description:
       "Plataforma focada em conectar profissionais da saúde e voluntários, com interface responsiva e foco social.",
     image: "/medicosvoluntario.jpeg",
-    link: "https://github.com/thiagosimaswebdev/medicos-e-dentistas-voluntarios",
+    link: "https://github.com/EwertonHecsley/react-project-medico-dentista",
   },
   {
     title: "Viva Bem",
     description:
       "Projeto com foco em saúde e bem-estar, abordando conteúdos de saúde masculina e feminina com layout acessível.",
     image: "/vivabem.jpeg",
-    link: "https://github.com/thiagosimaswebdev/projeto-viva-bem",
+    link: "https://github.com/EwertonHecsley/html-projeto-viva-bem",
   },
   {
-    title: "Pomodoro",
-    description:
-      "Aplicação de produtividade utilizando a técnica Pomodoro, com foco em organização de tempo e foco.",
-    image: "/pomodoro.jpeg",
-    link: "https://github.com/thiagosimaswebdev/projeto-pomodoro2",
+    title:"Projeto Social",
+    description:"O projeto simula uma plataforma de projetos sociais, contendo páginas como Doação, Voluntariado, Mentoria e Eventos, seguindo um layout responsivo e baseado em componentes reutilizáveis.",
+    image:"/projetoSocial.png",
+    link:"https://github.com/EwertonHecsley/react-project-social"
   },
+  {
+    title:"ReciclaTec",
+    description:"Uma Landing Page moderna, responsiva e focada na missão de transformar o mercado de eletrônicos usados, promovendo a reciclagem, compra e venda para um futuro mais sustentável.",
+    image:"/reciclaTec.png",
+    link:"https://github.com/EwertonHecsley/html-project-recicla-tec"
+  },
+  {
+    title:"API Digital Wallet",
+    description:"API para simulação de uma carteira digital, permitindo operações de depósito, saque, transferência entre usuários, autenticação, controle de saldo e geração de extrato financeiro, seguindo boas práticas de arquitetura, DDD e padrões de projeto.",
+    image:"/apiWallet.jpg",
+    link:"https://github.com/EwertonHecsley/nest-digital-wallet"
+  },
+  {
+    title:"API PDV",
+    description: "Um dos meus primeiros projetos quando iniciei meus estudos, com orgulho compartilho para mostrar minha evolução no desenvolvimento. Trata-se de uma API para sistema de caixa de ponto de venda",
+    image:"/pdv.jpg",
+    link:"https://github.com/EwertonHecsley/node-sistema-pdv"
+  }
 ];
 
 export function Projects() {
@@ -80,7 +97,7 @@ export function Projects() {
         {/* LINK GERAL */}
         <Reveal className="text-center mt-16">
           <a
-            href="https://github.com/thiagosimaswebdev"
+            href="https://github.com/EwertonHecsley"
             target="_blank"
             className="inline-block px-6 py-3 rounded-lg border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition font-medium"
           >

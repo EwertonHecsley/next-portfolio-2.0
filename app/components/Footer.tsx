@@ -20,7 +20,7 @@ export function Footer() {
           className="group flex items-center gap-2 text-white font-bold text-lg hover:text-blue-400 transition cursor-pointer"
           aria-label="Voltar ao topo"
         >
-          &lt; Thiago Simas Dev / &gt;
+          &lt; Ewerton Hecsley / &gt;
           <ArrowUp
             size={18}
             className="transition-transform duration-300 group-hover:-translate-y-1"
@@ -29,14 +29,14 @@ export function Footer() {
 
         {/* COPY */}
         <p className="text-sm text-center">
-          © {new Date().getFullYear()} Thiago Simas. Desenvolvido com foco em
+          © {new Date().getFullYear()} Ewerton Hecsley. Desenvolvido com foco em
           performance, acessibilidade e boas práticas.
         </p>
 
         {/* REDES SOCIAIS */}
         <div className="flex gap-4">
           <a
-            href="https://github.com/thiagosimaswebdev"
+            href="https://github.com/EwertonHecsley"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -46,7 +46,7 @@ export function Footer() {
           </a>
 
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/ewerton-hecsley-8a613992/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -56,7 +56,7 @@ export function Footer() {
           </a>
 
           <a
-            href="mailto:thiagosimas1@gmail.com"
+            href="mailto:ewerton.martinscomercial@gmail.com"
             aria-label="Email"
             className="hover:text-white transition"
           >

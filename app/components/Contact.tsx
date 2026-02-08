@@ -67,7 +67,7 @@ Olá, meu nome é ${name}!
 ${message}
     `;
 
-    const phone = "5521983120337";
+    const phone = "5583998507503";
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(
       whatsappMessage
     )}`;
@@ -84,7 +84,7 @@ ${message}
   return (
     <section
       id="contact"
-      className="py-28 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white px-6"
+      className="py-28 bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-white px-6"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
 
@@ -127,7 +127,7 @@ ${message}
                 href="mailto:thiagosimas1@gmail.com"
                 className="text-blue-400 hover:underline"
               >
-                thiagosimas1@gmail.com
+                ewerton.martinscomercial@gmail.com
               </a>
             </div>
 
@@ -138,7 +138,7 @@ ${message}
               <ul className="space-y-2 text-gray-300">
                 <li>
                   <a
-                    href="https://www.linkedin.com/"
+                    href="https://www.linkedin.com/in/ewerton-hecsley-8a613992/"
                     target="_blank"
                     className="hover:text-blue-400 transition"
                   >
@@ -147,7 +147,7 @@ ${message}
                 </li>
                 <li>
                   <a
-                    href="https://github.com/thiagosimaswebdev"
+                    href="https://github.com/EwertonHecsley"
                     target="_blank"
                     className="hover:text-blue-400 transition"
                   >
@@ -155,7 +155,7 @@ ${message}
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-blue-400 transition">
+                  <a href="/cv.pdf" target="_blank" className="hover:text-blue-400 transition">
                     CV ↗
                   </a>
                 </li>
@@ -228,7 +228,9 @@ ${message}
                 <option>Site institucional</option>
                 <option>Landing page</option>
                 <option>Aplicação Web</option>
+                <option>API Rest</option>
                 <option>Freelance / Parceria</option>
+                <option>Contato / Dúvidas</option>
               </select>
             </div>
 
@@ -272,7 +274,7 @@ ${message}
 
             {success && (
               <p className="text-green-400 text-sm">
-                ✅ Mensagem preparada! Continue no WhatsApp 👋
+                ✅ Mensagem enviada! Continue no WhatsApp 👋
               </p>
             )}
           </form>
@@ -281,214 +283,3 @@ ${message}
     </section>
   );
 }
-
-
-// "use client";
-
-// import { motion } from "framer-motion";
-// import { useRef, useState } from "react";
-// import emailjs from "@emailjs/browser";
-
-// export function Contact() {
-//   const formRef = useRef<HTMLFormElement | null>(null);
-//   const [loading, setLoading] = useState(false);
-//   const [success, setSuccess] = useState(false);
-//   const [error, setError] = useState(false);
-
-//   function sendEmail(e: React.FormEvent) {
-//     e.preventDefault();
-//     setLoading(true);
-//     setSuccess(false);
-//     setError(false);
-
-//     if (!formRef.current) return;
-
-//     emailjs
-//       .sendForm(
-//         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-//         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-//         formRef.current,
-//         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-//       )
-//       .then(() => {
-//         setSuccess(true);
-//         formRef.current?.reset();
-//       })
-//       .catch(() => {
-//         setError(true);
-//       })
-//       .finally(() => {
-//         setLoading(false);
-//       });
-//   }
-
-//   return (
-//     <section
-//       id="contact"
-//       className="py-28 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white px-6"
-//     >
-//       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-
-//         {/* TEXTO / INFO */}
-//         <motion.div
-//           initial={{ opacity: 0, x: -30 }}
-//           whileInView={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 0.6 }}
-//           viewport={{ once: true }}
-//           className="space-y-8"
-//         >
-//           <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-//             Transforme sua ideia em <br />
-//             <span className="text-blue-400">realidade digital.</span>
-//           </h2>
-
-//           <p className="text-gray-400 max-w-xl">
-//             Vagas Full-time, Freelance ou parcerias. Vamos conversar e tirar sua
-//             ideia do papel.
-//           </p>
-
-//           <div>
-//             <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
-//               Disponibilidade
-//             </h3>
-//             <p className="text-gray-300">
-//               Disponível para Freelance & Projetos
-//             </p>
-//             <p className="text-gray-400 text-sm">
-//               Ajudo a construir sites performáticos e interfaces acessíveis.
-//             </p>
-//           </div>
-
-//           <div>
-//             <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
-//               Email
-//             </h3>
-//             <a
-//               href="mailto:thiagosimas1@gmail.com"
-//               className="text-blue-400 hover:underline"
-//             >
-//               thiagosimas1@gmail.com
-//             </a>
-//           </div>
-
-//           <div>
-//             <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
-//               Social
-//             </h3>
-//             <ul className="space-y-2 text-gray-300">
-//               <li>
-//                 <a
-//                   href="https://www.linkedin.com/"
-//                   target="_blank"
-//                   className="hover:text-blue-400 transition"
-//                 >
-//                   LinkedIn ↗
-//                 </a>
-//               </li>
-//               <li>
-//                 <a
-//                   href="https://github.com/thiagosimaswebdev"
-//                   target="_blank"
-//                   className="hover:text-blue-400 transition"
-//                 >
-//                   GitHub ↗
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="#" className="hover:text-blue-400 transition">
-//                   CV ↗
-//                 </a>
-//               </li>
-//             </ul>
-//           </div>
-//         </motion.div>
-
-//         {/* FORMULÁRIO */}
-//         <motion.form
-//           ref={formRef}
-//           onSubmit={sendEmail}
-//           initial={{ opacity: 0, x: 30 }}
-//           whileInView={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 0.6 }}
-//           viewport={{ once: true }}
-//           className="bg-slate-900/60 backdrop-blur border border-slate-800 rounded-2xl p-8 space-y-6"
-//         >
-//           <div>
-//             <label className="block text-sm text-gray-400 mb-1">
-//               Seu nome
-//             </label>
-//             <input
-//               type="text"
-//               name="name"
-//               required
-//               placeholder="Como devo te chamar?"
-//               className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-blue-500"
-//             />
-//           </div>
-
-//           <div>
-//             <label className="block text-sm text-gray-400 mb-1">
-//               Seu email
-//             </label>
-//             <input
-//               type="email"
-//               name="email"
-//               required
-//               placeholder="nome@exemplo.com"
-//               className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-blue-500"
-//             />
-//           </div>
-
-//           <div>
-//             <label className="block text-sm text-gray-400 mb-1">
-//               Tipo de projeto
-//             </label>
-//             <select
-//               name="project_type"
-//               className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-blue-500"
-//             >
-//               <option>Selecione uma opção...</option>
-//               <option>Site institucional</option>
-//               <option>Landing page</option>
-//               <option>Aplicação Web</option>
-//               <option>Freelance / Parceria</option>
-//             </select>
-//           </div>
-
-//           <div>
-//             <label className="block text-sm text-gray-400 mb-1">
-//               Mensagem
-//             </label>
-//             <textarea
-//               name="message"
-//               rows={4}
-//               required
-//               placeholder="Me conte um pouco sobre sua ideia..."
-//               className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-blue-500 resize-none"
-//             />
-//           </div>
-
-//           <button
-//             type="submit"
-//             disabled={loading}
-//             className="w-full py-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition font-medium"
-//           >
-//             {loading ? "Enviando..." : "Enviar mensagem"}
-//           </button>
-
-//           {success && (
-//             <p className="text-green-400 text-sm">
-//               ✅ Mensagem enviada com sucesso!
-//             </p>
-//           )}
-
-//           {error && (
-//             <p className="text-red-400 text-sm">
-//               ❌ Erro ao enviar. Tente novamente.
-//             </p>
-//           )}
-//         </motion.form>
-//       </div>
-//     </section>
-//   );
-// }

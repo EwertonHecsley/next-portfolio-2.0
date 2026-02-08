@@ -31,14 +31,14 @@ export function Hero() {
             <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight">
               Desenvolvedor Full Stack <br />
               <span className="text-blue-400">
-                focado em React e Next.js
+                focado em React e Next
               </span>
             </h1>
 
             {/* DESCRIÇÃO */}
             <p className="text-base md:text-1xl text-gray-300 max-w-xl leading-relaxed text-left md:text-justify
 ">
-                Desenvolvedor Backend focado em criar soluções eficientes para o mundo real, unindo arquitetura, regras de negócio bem definidas e código limpo.
+                Desenvolvedor Full Stack focado em criar soluções eficientes para o mundo real, unindo arquitetura, regras de negócio bem definidas e código limpo.
             </p>
             <p className="text-base md:text-1xl text-gray-300 max-w-xl leading-relaxed text-left md:text-justify
 ">
