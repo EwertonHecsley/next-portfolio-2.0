@@ -10,7 +10,7 @@ export function Hero() {
       className="
         relative
         min-h-screen
-        bg-gradient-to-br from-blue-950 via-indigo-950 to-slate-900
+        bg-linear-to-br from-blue-950 via-indigo-950 to-slate-900
         text-white
         flex items-center
         pt-28 md:pt-32
@@ -24,24 +24,26 @@ export function Hero() {
 
             {/* TAG */}
             <span className="inline-block text-sm md:text-base font-medium text-blue-400">
-              👋 Olá, eu sou Thiago
+              👋 Olá, eu sou Ewerton Hecsley
             </span>
 
             {/* TÍTULO */}
             <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight">
-              Desenvolvedor Front-end <br />
+              Desenvolvedor Full Stack <br />
               <span className="text-blue-400">
                 focado em React e Next.js
               </span>
             </h1>
 
             {/* DESCRIÇÃO */}
-            <p className="text-base md:text-lg text-gray-300 max-w-xl leading-relaxed">
-              Sou estudante de ADS e entusiasta de tecnologia, focado em criar
-              interfaces modernas, acessíveis e responsivas. Busco minha primeira
-              oportunidade como desenvolvedor.
+            <p className="text-base md:text-1xl text-gray-300 max-w-xl leading-relaxed text-left md:text-justify
+">
+                Desenvolvedor Backend focado em criar soluções eficientes para o mundo real, unindo arquitetura, regras de negócio bem definidas e código limpo.
             </p>
-
+            <p className="text-base md:text-1xl text-gray-300 max-w-xl leading-relaxed text-left md:text-justify
+">
+              Com mais de 10 anos de experiência na área comercial, desenvolvi forte visão de negócio, comunicação e tomada de decisão. Hoje aplico essa bagagem no desenvolvimento de software, criando sistemas completos, landing pages, APIs robustas, escaláveis e alinhadas a problemas reais do mercado.
+            </p>
             {/* BOTÕES */}
             <div className="flex flex-wrap gap-4 pt-2">
               <a
@@ -52,7 +54,7 @@ export function Hero() {
               </a>
 
               <a
-                href="/Curriculo - Thiago S Oliveira.pdf"
+                href="/cv.pdf"
                 download
                 className="px-7 py-3 rounded-lg border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white transition font-medium"
               >
@@ -62,14 +64,11 @@ export function Hero() {
 
             {/* REDES */}
             <div className="flex gap-6 pt-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-white transition">
+              <a href="https://github.com/EwertonHecsley" target="_blank" className="hover:text-white transition pb-6 text-2xl">
                 GitHub
               </a>
-              <a href="#" className="hover:text-white transition">
+              <a href="https://www.linkedin.com/in/ewerton-hecsley-8a613992/" target="_blank" className="hover:text-white transition pb-6 text-2xl">
                 LinkedIn
-              </a>
-              <a href="#" className="hover:text-white transition">
-                Email
               </a>
             </div>
           </div>
@@ -83,9 +82,9 @@ export function Hero() {
             <div className="absolute w-96 h-96 bg-blue-500/20 blur-3xl rounded-full" />
 
             <motion.img
-              src="/thiagoavatar2.png"
-              alt="Thiago desenvolvedor"
-              className="relative z-10 w-72 md:w-96 xl:w-[420px] rounded-full"
+              src="/eu.png"
+              alt="caricatura do desenvolvedor"
+              className="relative z-10 w-96 md:w-md xl:w-lg rounded-full"
               animate={{ y: [0, -16, 0] }}
               transition={{
                 duration: 5,

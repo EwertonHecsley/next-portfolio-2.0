@@ -3,8 +3,8 @@ import "./globals.css";
 import Header from "./components/Header";
 
 export const metadata: Metadata = {
-  title: "Thiago Simas | Dev",
-  description: "Portfólio de Thiago Simas — Desenvolvedor Front-end",
+  title: "Ewerton Hecsley | Dev",
+  description: "Portfólio de Ewerton Hecsley — Desenvolvedor Front End",
   icons: {
     icon: [
       { url: "/ts-logo.svg", type: "image/svg+xml" },

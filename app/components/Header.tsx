@@ -26,7 +26,7 @@ export default function Header() {
         <span className="hidden min-[360px]:inline text-base sm:text-lg md:text-2xl">
           &lt;{" "}
           <span className="text-blue-400 font-mono">
-            Thiago Simas
+            Ewerton Hecsley
           </span>{" "}
           Dev /&gt;
         </span>
@@ -35,7 +35,7 @@ export default function Header() {
         <span className="inline min-[360px]:hidden text-base">
           &lt;{" "}
           <span className="text-blue-400 font-mono">
-            TS
+            EH
           </span>{" "}
           Dev /&gt;
         </span>
@@ -50,7 +50,7 @@ export default function Header() {
             className="
               relative hover:text-white transition
               after:absolute after:left-0 after:-bottom-1
-              after:w-0 after:h-[2px] after:bg-blue-400
+              after:w-0 after:h-0.5 after:bg-blue-400
               hover:after:w-full after:transition-all
             "
           >
