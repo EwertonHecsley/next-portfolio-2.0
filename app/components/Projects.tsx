@@ -11,11 +11,11 @@ const projects = [
     link: "https://github.com/EwertonHecsley/react-project-medico-dentista",
   },
   {
-    title: "Viva Bem",
+    title: "Gestão de Produtos e Restaurantes",
     description:
-      "Projeto com foco em saúde e bem-estar, abordando conteúdos de saúde masculina e feminina com layout acessível.",
-    image: "/vivabem.jpeg",
-    link: "https://github.com/EwertonHecsley/html-projeto-viva-bem",
+      "API para gerenciamento de produtos e restaurantes, com funcionalidades de CRUD, autenticação, controle de estoque e integração com banco de dados, seguindo boas práticas de desenvolvimento.",
+    image: "/goomer.png",
+    link: "https://github.com/EwertonHecsley/nest-desafio-goomer",
   },
   {
     title:"Projeto Social",
