@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className="bg-black text-white antialiased">npm i @vercel/speed-insights
+      <body className="bg-black text-white antialiased">
         <Header />
         {children}
         <SpeedInsights/>
