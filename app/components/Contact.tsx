@@ -10,32 +10,54 @@ interface Errors {
   message?: string;
 }
 
+const contactInfo = [
+  {
+    icon: "📧",
+    label: "Email",
+    value: "ewerton.martinscomercial@gmail.com",
+    href: "mailto:ewerton.martinscomercial@gmail.com",
+  },
+  {
+    icon: "💼",
+    label: "LinkedIn",
+    value: "ewerton-hecsley",
+    href: "https://www.linkedin.com/in/ewerton-hecsley-8a613992/",
+  },
+  {
+    icon: "🐙",
+    label: "GitHub",
+    value: "EwertonHecsley",
+    href: "https://github.com/EwertonHecsley",
+  },
+  {
+    icon: "📄",
+    label: "Currículo",
+    value: "Baixar CV (PDF)",
+    href: "/cv.pdf",
+  },
+];
+
+const services = [
+  "Sites institucionais modernos",
+  "Landing pages focadas em conversão",
+  "Aplicações Web com React e Next.js",
+  "APIs REST escaláveis (Node.js / NestJS)",
+  "Projetos responsivos e acessíveis",
+];
+
 export function Contact() {
   const formRef = useRef<HTMLFormElement | null>(null);
-
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
 
-  function validate(data: {
-    name: string;
-    email: string;
-    message: string;
-  }) {
+  function validate(data: { name: string; email: string; message: string }) {
     const newErrors: Errors = {};
-
-    if (data.name.trim().length < 2) {
-      newErrors.name = "Informe um nome válido.";
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+    if (data.name.trim().length < 2) newErrors.name = "Informe um nome válido.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))
       newErrors.email = "Informe um email válido.";
-    }
-
-    if (data.message.trim().length < 10) {
+    if (data.message.trim().length < 10)
       newErrors.message = "A mensagem deve ter pelo menos 10 caracteres.";
-    }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   }
@@ -43,34 +65,20 @@ export function Contact() {
   function sendToWhatsApp(e: React.FormEvent) {
     e.preventDefault();
     setSuccess(false);
-
     if (!formRef.current) return;
 
     const formData = new FormData(formRef.current);
-
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const project = String(formData.get("project_type") || "");
     const message = String(formData.get("message") || "").trim();
 
     if (!validate({ name, email, message })) return;
-
     setLoading(true);
 
-    const whatsappMessage = `
-Olá, meu nome é ${name}!
-
-📧 Email: ${email}
-💼 Tipo de projeto: ${project}
-
-📝 Mensagem:
-${message}
-    `;
-
+    const whatsappMessage = `Olá, meu nome é ${name}!\n\n📧 Email: ${email}\n💼 Tipo de projeto: ${project}\n\n📝 Mensagem:\n${message}`;
     const phone = "5583998507503";
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(
-      whatsappMessage
-    )}`;
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(whatsappMessage)}`;
 
     setTimeout(() => {
       window.open(url, "_blank");
@@ -84,201 +92,331 @@ ${message}
   return (
     <section
       id="contact"
-      className="py-28 bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-white px-6"
+      style={{
+        background: "var(--bg-primary)",
+        scrollMarginTop: "5rem",
+        position: "relative",
+        overflow: "hidden",
+        borderTop: "1px solid var(--border-subtle)",
+      }}
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+      {/* Grid bg */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage:
+            "linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+          pointerEvents: "none",
+        }}
+      />
 
-        {/* TEXTO / INFO */}
-        <Reveal>
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-              Transforme sua ideia em <br />
-              <span className="text-blue-400">realidade digital.</span>
-            </h2>
+      <div className="section-container" style={{ position: "relative" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "4rem",
+          }}
+          className="contact-grid"
+        >
 
-            <p className="text-gray-400 max-w-xl">
-              Vagas Full-time, Freelance ou parcerias. Vamos conversar e tirar sua
-              ideia do papel.
-            </p>
+          {/* INFO SIDE */}
+          <Reveal direction="left">
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
+              <div>
+                <div className="section-label">Contato</div>
+                <h2 className="section-title mt-2">
+                  Vamos <span>trabalhar juntos?</span>
+                </h2>
+              </div>
 
-            <div>
-              <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
-                Disponibilidade
-              </h3>
-              <p className="text-gray-300">
-                Disponível para Freelance & Projetos
+              <p style={{ color: "var(--text-muted)", lineHeight: "1.9" }}>
+                Vagas Full-time, Freelance ou parcerias. Vamos conversar e tirar
+                sua ideia do papel.
               </p>
-              <p className="text-gray-400 text-sm">
-                Ajudo a construir sites performáticos e interfaces acessíveis.
-              </p>
-            </div>
-                        <div className="space-y-4 text-gray-300">
-              <p>✔ Sites institucionais modernos</p>
-              <p>✔ Landing pages focadas em conversão</p>
-              <p>✔ Aplicações Web com React e Next.js</p>
-              <p>✔ Projetos responsivos e acessíveis</p>
-            </div>
 
-            <div>
-              <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
-                Email
-              </h3>
-              <a
-                href="mailto:thiagosimas1@gmail.com"
-                className="text-blue-400 hover:underline"
+              {/* Availability badge */}
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  padding: "0.5rem 1rem",
+                  borderRadius: "9999px",
+                  background: "rgba(0,255,136,0.08)",
+                  border: "1px solid rgba(0,255,136,0.3)",
+                }}
               >
-                ewerton.martinscomercial@gmail.com
-              </a>
-            </div>
+                <span
+                  style={{
+                    width: "8px",
+                    height: "8px",
+                    borderRadius: "50%",
+                    background: "var(--neon)",
+                    boxShadow: "0 0 8px var(--neon)",
+                    animation: "glowPulse 2s ease-in-out infinite",
+                    display: "inline-block",
+                  }}
+                />
+                <span
+                  className="font-mono text-sm font-medium"
+                  style={{ color: "var(--neon)" }}
+                >
+                  Disponível para novos projetos
+                </span>
+              </div>
 
-            <div>
-              <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
-                Social
-              </h3>
-              <ul className="space-y-2 text-gray-300">
-                <li>
+              {/* Services */}
+              <div>
+                <h3
+                  className="font-mono text-xs uppercase tracking-widest mb-4"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  Posso te ajudar com:
+                </h3>
+                <ul className="space-y-2">
+                  {services.map((s) => (
+                    <li
+                      key={s}
+                      className="flex items-center gap-3 text-sm"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      <span style={{ color: "var(--neon)" }}>▸</span>
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact links */}
+              <div className="space-y-3">
+                <h3
+                  className="font-mono text-xs uppercase tracking-widest mb-4"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  Onde me encontrar:
+                </h3>
+                {contactInfo.map((c) => (
                   <a
-                    href="https://www.linkedin.com/in/ewerton-hecsley-8a613992/"
-                    target="_blank"
-                    className="hover:text-blue-400 transition"
+                    key={c.label}
+                    href={c.href}
+                    target={c.href.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      c.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="flex items-center gap-3 p-3 rounded-lg transition-all duration-300"
+                    style={{
+                      background: "var(--bg-card)",
+                      border: "1px solid var(--border-subtle)",
+                      color: "var(--text-muted)",
+                      textDecoration: "none",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor =
+                        "rgba(0,255,136,0.35)";
+                      e.currentTarget.style.color = "var(--neon)";
+                      e.currentTarget.style.background =
+                        "rgba(0,255,136,0.04)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "var(--border-subtle)";
+                      e.currentTarget.style.color = "var(--text-muted)";
+                      e.currentTarget.style.background = "var(--bg-card)";
+                    }}
                   >
-                    LinkedIn ↗
+                    <span>{c.icon}</span>
+                    <div>
+                      <p
+                        className="text-xs font-mono"
+                        style={{ color: "var(--text-dim)", marginBottom: "1px" }}
+                      >
+                        {c.label}
+                      </p>
+                      <p className="text-sm font-medium">{c.value}</p>
+                    </div>
+                    <span className="ml-auto text-xs">↗</span>
                   </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/EwertonHecsley"
-                    target="_blank"
-                    className="hover:text-blue-400 transition"
-                  >
-                    GitHub ↗
-                  </a>
-                </li>
-                <li>
-                  <a href="/cv.pdf" target="_blank" className="hover:text-blue-400 transition">
-                    CV ↗
-                  </a>
-                </li>
-              </ul>
+                ))}
+              </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
 
-        {/* FORMULÁRIO */}
-        <Reveal>
-          <form
-            ref={formRef}
-            onSubmit={sendToWhatsApp}
-            className="bg-slate-900/60 backdrop-blur border border-slate-800 rounded-2xl p-8 space-y-6"
-          >
-            {/* Nome */}
-            <div>
-              <label className="block text-sm text-gray-400 mb-1">
-                Seu nome
-              </label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Como devo te chamar?"
-                className={`w-full px-4 py-3 rounded-lg bg-slate-950 border text-white focus:outline-none
-                  ${
-                    errors.name
-                      ? "border-red-500"
-                      : "border-slate-800 focus:border-blue-500"
-                  }
-                `}
-              />
-              {errors.name && (
-                <p className="text-red-400 text-xs mt-1">{errors.name}</p>
-              )}
-            </div>
-
-            {/* Email */}
-            <div>
-              <label className="block text-sm text-gray-400 mb-1">
-                Seu email
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="nome@exemplo.com"
-                className={`w-full px-4 py-3 rounded-lg bg-slate-950 border text-white focus:outline-none
-                  ${
-                    errors.email
-                      ? "border-red-500"
-                      : "border-slate-800 focus:border-blue-500"
-                  }
-                `}
-              />
-              {errors.email && (
-                <p className="text-red-400 text-xs mt-1">{errors.email}</p>
-              )}
-            </div>
-
-            {/* Tipo de projeto */}
-            <div>
-              <label className="block text-sm text-gray-400 mb-1">
-                Tipo de projeto
-              </label>
-              <select
-                name="project_type"
-                className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-blue-500"
-              >
-                <option value="">Selecione uma opção...</option>
-                <option>Site institucional</option>
-                <option>Landing page</option>
-                <option>Aplicação Web</option>
-                <option>API Rest</option>
-                <option>Freelance / Parceria</option>
-                <option>Contato / Dúvidas</option>
-              </select>
-            </div>
-
-            {/* Mensagem */}
-            <div>
-              <label className="block text-sm text-gray-400 mb-1">
-                Mensagem
-              </label>
-              <textarea
-                name="message"
-                rows={4}
-                placeholder="Me conte um pouco sobre sua ideia..."
-                className={`w-full px-4 py-3 rounded-lg bg-slate-950 border text-white resize-none focus:outline-none
-                  ${
-                    errors.message
-                      ? "border-red-500"
-                      : "border-slate-800 focus:border-blue-500"
-                  }
-                `}
-              />
-              {errors.message && (
-                <p className="text-red-400 text-xs mt-1">
-                  {errors.message}
-                </p>
-              )}
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className={`w-full py-3 rounded-lg font-medium transition
-                ${
-                  loading
-                    ? "bg-blue-500/60 cursor-not-allowed animate-pulse"
-                    : "bg-blue-600 hover:bg-blue-700"
-                }
-              `}
+          {/* FORM SIDE */}
+          <Reveal delay={0.15}>
+            <motion.form
+              ref={formRef}
+              onSubmit={sendToWhatsApp}
+              className="card-glass"
+              style={{
+                padding: "2rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.25rem",
+              }}
             >
-              {loading ? "Abrindo WhatsApp..." : "Enviar mensagem"}
-            </button>
+              <div
+                style={{
+                  marginBottom: "0.5rem",
+                  borderBottom: "1px solid var(--border-subtle)",
+                  paddingBottom: "1rem",
+                }}
+              >
+                <h3
+                  className="font-bold text-lg"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  Enviar mensagem
+                </h3>
+              </div>
 
-            {success && (
-              <p className="text-green-400 text-sm">
-                ✅ Mensagem enviada! Continue no WhatsApp 👋
-              </p>
-            )}
-          </form>
-        </Reveal>
+              {/* Nome */}
+              <div>
+                <label
+                  className="block text-xs font-mono mb-1.5"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  nome *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="contact-name"
+                  placeholder="Como devo te chamar?"
+                  className={`input-neon ${errors.name ? "error" : ""}`}
+                />
+                {errors.name && (
+                  <p className="text-xs mt-1" style={{ color: "#ff5555" }}>
+                    {errors.name}
+                  </p>
+                )}
+              </div>
+
+              {/* Email */}
+              <div>
+                <label
+                  className="block text-xs font-mono mb-1.5"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  email *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="contact-email"
+                  placeholder="nome@exemplo.com"
+                  className={`input-neon ${errors.email ? "error" : ""}`}
+                />
+                {errors.email && (
+                  <p className="text-xs mt-1" style={{ color: "#ff5555" }}>
+                    {errors.email}
+                  </p>
+                )}
+              </div>
+
+              {/* Tipo de projeto */}
+              <div>
+                <label
+                  className="block text-xs font-mono mb-1.5"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  tipo de projeto
+                </label>
+                <select
+                  name="project_type"
+                  id="contact-project-type"
+                  className="input-neon"
+                  style={{ cursor: "pointer" }}
+                >
+                  <option value="" style={{ background: "var(--bg-primary)" }}>
+                    Selecione uma opção...
+                  </option>
+                  <option style={{ background: "var(--bg-primary)" }}>
+                    Site institucional
+                  </option>
+                  <option style={{ background: "var(--bg-primary)" }}>
+                    Landing page
+                  </option>
+                  <option style={{ background: "var(--bg-primary)" }}>
+                    Aplicação Web
+                  </option>
+                  <option style={{ background: "var(--bg-primary)" }}>
+                    API Rest
+                  </option>
+                  <option style={{ background: "var(--bg-primary)" }}>
+                    Freelance / Parceria
+                  </option>
+                  <option style={{ background: "var(--bg-primary)" }}>
+                    Contato / Dúvidas
+                  </option>
+                </select>
+              </div>
+
+              {/* Mensagem */}
+              <div>
+                <label
+                  className="block text-xs font-mono mb-1.5"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  mensagem *
+                </label>
+                <textarea
+                  name="message"
+                  id="contact-message"
+                  rows={4}
+                  placeholder="Me conte um pouco sobre sua ideia..."
+                  className={`input-neon resize-none ${errors.message ? "error" : ""}`}
+                />
+                {errors.message && (
+                  <p className="text-xs mt-1" style={{ color: "#ff5555" }}>
+                    {errors.message}
+                  </p>
+                )}
+              </div>
+
+              <motion.button
+                id="contact-submit-btn"
+                type="submit"
+                disabled={loading}
+                whileHover={{ scale: loading ? 1 : 1.01 }}
+                whileTap={{ scale: loading ? 1 : 0.98 }}
+                className={loading ? "" : "btn-neon-filled"}
+                style={{
+                  width: "100%",
+                  padding: "0.875rem",
+                  borderRadius: "0.5rem",
+                  fontWeight: 700,
+                  fontSize: "0.9rem",
+                  cursor: loading ? "not-allowed" : "pointer",
+                  ...(loading
+                    ? {
+                        background: "rgba(0,255,136,0.15)",
+                        border: "1px solid rgba(0,255,136,0.3)",
+                        color: "var(--neon)",
+                        animation: "pulse 1.5s ease-in-out infinite",
+                      }
+                    : {}),
+                }}
+              >
+                {loading ? "⏳ Abrindo WhatsApp..." : "✉ Enviar via WhatsApp"}
+              </motion.button>
+
+              {success && (
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-sm text-center font-mono"
+                  style={{ color: "var(--neon)" }}
+                >
+                  ✅ Mensagem pronta! Continue no WhatsApp 👋
+                </motion.p>
+              )}
+            </motion.form>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

@@ -2,68 +2,147 @@
 
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 
+const socials = [
+  {
+    label: "GitHub",
+    href: "https://github.com/EwertonHecsley",
+    icon: <Github size={17} />,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/ewerton-hecsley-8a613992/",
+    icon: <Linkedin size={17} />,
+  },
+  {
+    label: "Email",
+    href: "mailto:ewerton.martinscomercial@gmail.com",
+    icon: <Mail size={17} />,
+  },
+];
+
 export function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-800 text-gray-400">
-      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer
+      style={{
+        background: "var(--bg-secondary)",
+        borderTop: "1px solid var(--border-subtle)",
+      }}
+    >
+      {/* Neon gradient line */}
+      <div
+        style={{
+          height: "1px",
+          background:
+            "linear-gradient(to right, transparent, rgba(0,255,136,0.4), transparent)",
+        }}
+      />
 
-        {/* LOGO / NOME */}
-        <button
-          onClick={scrollToTop}
-          className="group flex items-center gap-2 text-white font-bold text-lg hover:text-blue-400 transition cursor-pointer"
-          aria-label="Voltar ao topo"
+      <div
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "2rem 1.5rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "1.25rem",
+          alignItems: "center",
+        }}
+      >
+        {/* Main row: Logo | Social icons | Back to top */}
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "1rem",
+          }}
         >
-          &lt; Ewerton Hecsley / &gt;
-          <ArrowUp
-            size={18}
-            className="transition-transform duration-300 group-hover:-translate-y-1"
-          />
-        </button>
-
-        {/* COPY */}
-        <p className="text-sm text-center">
-          © {new Date().getFullYear()} Ewerton Hecsley. Desenvolvido com foco em
-          performance, acessibilidade e boas práticas.
-        </p>
-
-        {/* REDES SOCIAIS */}
-        <div className="flex gap-4">
-          <a
-            href="https://github.com/EwertonHecsley"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="hover:text-white transition"
+          {/* Logo / Name */}
+          <button
+            onClick={scrollToTop}
+            aria-label="Voltar ao topo"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+            }}
           >
-            <Github size={20} />
-          </a>
+            <span
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontWeight: 700,
+                fontSize: "0.95rem",
+                color: "var(--text-primary)",
+                transition: "color 0.25s ease",
+                whiteSpace: "nowrap",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.color = "var(--neon)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.color = "var(--text-primary)")
+              }
+            >
+              {"< "}
+              <span style={{ color: "var(--neon)", textShadow: "0 0 10px rgba(0,255,136,0.4)" }}>
+                Ewerton Hecsley
+              </span>
+              {" Dev />"}
+            </span>
+          </button>
 
-          <a
-            href="https://www.linkedin.com/in/ewerton-hecsley-8a613992/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="hover:text-white transition"
-          >
-            <Linkedin size={20} />
-          </a>
-
-          <a
-            href="mailto:ewerton.martinscomercial@gmail.com"
-            aria-label="Email"
-            className="hover:text-white transition"
-          >
-            <Mail size={20} />
-          </a>
+          {/* Social icons */}
+          <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target={s.href.startsWith("http") ? "_blank" : undefined}
+                rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                aria-label={s.label}
+                style={{
+                  color: "var(--text-muted)",
+                  transition: "color 0.25s ease, filter 0.25s ease",
+                  display: "flex",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "var(--neon)";
+                  e.currentTarget.style.filter =
+                    "drop-shadow(0 0 6px rgba(0,255,136,0.55))";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "var(--text-muted)";
+                  e.currentTarget.style.filter = "none";
+                }}
+              >
+                {s.icon}
+              </a>
+            ))}
+          </div>
         </div>
 
+        {/* Copyright */}
+        <p
+          style={{
+            fontSize: "0.72rem",
+            textAlign: "center",
+            fontFamily: "'JetBrains Mono', monospace",
+            color: "var(--text-dim)",
+            lineHeight: 1.6,
+          }}
+        >
+          © {new Date().getFullYear()}{" "}
+          <span style={{ color: "var(--text-muted)" }}>Ewerton Hecsley</span>
+          {" · "}Desenvolvido com foco em performance, acessibilidade e boas práticas.
+        </p>
       </div>
     </footer>
   );
