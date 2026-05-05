@@ -1,0 +1,9 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo matching --bg-primary -->
+  <rect width="512" height="512" rx="96" fill="#050a0e"></rect>
+
+  <!-- Texto matching --neon -->
+  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="monospace" font-size="220" font-weight="900" fill="#00ff88" style="text-shadow: 0 0 20px rgba(0,255,136,0.5)">
+    &lt;EH/&gt;
+  </text>
+</svg>

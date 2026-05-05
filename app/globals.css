@@ -1,1 +1,516 @@
 @import "tailwindcss";
+
+:root {
+  --neon: #00ff88;
+  --neon-dim: #00cc6a;
+  --neon-glow: rgba(0, 255, 136, 0.15);
+  --neon-glow-strong: rgba(0, 255, 136, 0.35);
+  --bg-primary: #050a0e;
+  --bg-secondary: #080f14;
+  --bg-card: #0a1520;
+  --bg-glass: rgba(10, 21, 32, 0.7);
+  --border-subtle: rgba(0, 255, 136, 0.1);
+  --border-neon: rgba(0, 255, 136, 0.4);
+  --text-primary: #e2f5ed;
+  --text-muted: #6b8a7a;
+  --text-dim: #3d5a4a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ───────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon-dim);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon);
+}
+
+/* ── SELECTION ───────────────────────────────────────── */
+::selection {
+  background: var(--neon-glow-strong);
+  color: var(--neon);
+}
+
+/* ── TYPOGRAPHY ──────────────────────────────────────── */
+.font-mono {
+  font-family: "JetBrains Mono", "Courier New", monospace;
+}
+
+/* ── NEON TEXT ───────────────────────────────────────── */
+.text-neon {
+  color: var(--neon);
+}
+.text-neon-glow {
+  color: var(--neon);
+  text-shadow: 0 0 20px var(--neon-glow-strong), 0 0 40px var(--neon-glow);
+}
+
+/* ── NEON BUTTON ─────────────────────────────────────── */
+.btn-neon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--neon);
+  color: var(--neon);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-neon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--neon);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+.btn-neon:hover {
+  color: var(--bg-primary);
+  box-shadow: 0 0 20px var(--neon-glow-strong), 0 0 40px var(--neon-glow);
+}
+.btn-neon:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-neon-filled {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.5rem;
+  background: var(--neon);
+  border: 1px solid var(--neon);
+  color: var(--bg-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-neon-filled:hover {
+  background: transparent;
+  color: var(--neon);
+  box-shadow: 0 0 20px var(--neon-glow-strong), 0 0 40px var(--neon-glow);
+}
+
+/* ── GLASS CARD ──────────────────────────────────────── */
+.card-glass {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card-glass:hover {
+  border-color: var(--border-neon);
+  box-shadow: 0 0 30px var(--neon-glow), inset 0 0 30px rgba(0, 255, 136, 0.02);
+}
+
+/* ── SECTION TITLE ───────────────────────────────────── */
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+.section-title span {
+  color: var(--neon);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--neon);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.section-label::before {
+  content: "";
+  width: 2rem;
+  height: 1px;
+  background: var(--neon);
+  display: inline-block;
+}
+
+/* ── GRID BACKGROUND ─────────────────────────────────── */
+.grid-bg {
+  background-image: linear-gradient(
+      rgba(0, 255, 136, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── FLOATING ANIMATION ──────────────────────────────── */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ── TYPING CURSOR ───────────────────────────────────── */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.cursor-blink {
+  animation: blink 0.8s step-end infinite;
+}
+
+/* ── GLOW PULSE ──────────────────────────────────────── */
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px var(--neon-glow), 0 0 40px rgba(0, 255, 136, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--neon-glow-strong), 0 0 80px var(--neon-glow);
+  }
+}
+.animate-glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* ── SCAN LINE ───────────────────────────────────────── */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* ── NEON BORDER SPIN ────────────────────────────────── */
+@keyframes rotateBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── SECTION SPACING ─────────────────────────────────── */
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5.5rem 1.5rem;
+  display: block;
+}
+
+/* ── HERO GRID ────────────────────────────────────── */
+.hero-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ── ABOUT & CONTACT GRIDS ────────────────────────── */
+.about-grid,
+.contact-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ── MOBILE BREAKPOINT (max 768px) ───────────────────── */
+@media (max-width: 768px) {
+  /* Stack all 2-col grids */
+  .hero-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+    text-align: center !important;
+  }
+
+  .hero-grid > div,
+  .about-grid > div,
+  .contact-grid > div {
+    width: 100% !important;
+  }
+
+  /* Center descriptions and labels on mobile */
+  .hero-grid p, 
+  .about-grid p,
+  .hero-grid .section-label,
+  .about-grid .section-label,
+  .hero-grid h1,
+  .about-grid h2 {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .hero-grid p,
+  .about-grid p {
+    text-align: justify !important;
+    text-align-last: center !important;
+  }
+
+  /* Hero: image alignment */
+  .hero-grid > div:last-child {
+    display: flex !important;
+    justify-content: center !important;
+    order: 2; /* Ensure image is below text */
+    position: relative;
+  }
+  /* Center hero image container content on mobile */
+  .hero-image-container {
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: clamp(250px, 35vw, 420px);
+  }
+
+  /* Center radial glow on mobile */
+  #hero > div[style*="radial-gradient"] {
+    left: 50% !important;
+  }
+  .hero-grid > div:first-child {
+    order: 1;
+  }
+
+  /* Hero: adjustments for fixed header */
+  .hero-grid {
+    padding-top: 4rem !important;
+    padding-bottom: 5rem !important;
+  }
+
+  /* About: image alignment */
+  .about-grid > div:first-child {
+    display: flex !important;
+    justify-content: center !important;
+    order: 1; 
+  }
+  .about-grid > div:first-child > div {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    align-items: center !important;
+  }
+  .about-grid > div:last-child {
+    order: 2;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* Highlight grids (About me tech) */
+  .tech-highlights-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Section container: less padding on mobile */
+  .section-container {
+    padding: 4rem 1.25rem !important;
+  }
+
+  /* Buttons: full width on very small screens */
+  .btn-neon,
+  .btn-neon-filled {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Center button containers */
+  .hero-grid div[style*="display: flex"],
+  .about-grid div[style*="display: flex"] {
+    justify-content: center !important;
+  }
+
+  /* Footer row: stack vertically on mobile */
+  .footer-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+  }
+
+  /* Header adjustments for fluid feel */
+  header div {
+    padding: 0 1rem !important;
+  }
+}
+
+/* Extra small screens fix */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.75rem !important;
+  }
+  .hero-grid h1 {
+    min-height: auto !important;
+  }
+}
+
+/* ── NAV LINK ────────────────────────────────────────── */
+.nav-link {
+  position: relative;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--neon);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 6px var(--neon);
+}
+.nav-link:hover {
+  color: var(--neon);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ── SKILL BADGE ─────────────────────────────────────── */
+.skill-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem 1rem;
+  border-radius: 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+.skill-badge:hover {
+  border-color: var(--neon);
+  background: rgba(0, 255, 136, 0.05);
+  box-shadow: 0 0 20px var(--neon-glow);
+  transform: translateY(-4px);
+}
+
+/* ── PROJECT CARD HOVER LINE ─────────────────────────── */
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── INPUT FOCUS ─────────────────────────────────────── */
+.input-neon {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(5, 10, 14, 0.8);
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+.input-neon::placeholder {
+  color: var(--text-dim);
+}
+.input-neon:focus {
+  border-color: var(--neon);
+  box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+}
+.input-neon.error {
+  border-color: #ff4444;
+}
+
+/* ── TERMINAL TAG ────────────────────────────────────── */
+.terminal-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  color: var(--neon);
+  opacity: 0.7;
+}
+
+/* ── MATRIX RAIN CANVAS ──────────────────────────────── */
+#matrix-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section-container {
+    padding: 4rem 1.25rem;
+  }
+  .hidden.min-\[660px\]\:flex {
+    display: none !important;
+  }
+}
+@media (min-width: 660px) {
+  .min-\[660px\]\:hidden {
+    display: none !important;
+  }
+}

@@ -1,15 +1,31 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
-import {SpeedInsights} from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  title: "Ewerton Hecsley | Dev",
-  description: "Portfólio de Ewerton Hecsley — Desenvolvedor Front End",
+  title: "Ewerton Hecsley | Full Stack Developer",
+  description:
+    "Portfólio de Ewerton Hecsley — Desenvolvedor Full Stack focado em React, Next.js e Node.js. Soluções modernas, arquitetura limpa e código de alto nível.",
+  keywords: [
+    "desenvolvedor full stack",
+    "react",
+    "next.js",
+    "node.js",
+    "typescript",
+    "portfólio",
+  ],
+  authors: [{ name: "Ewerton Hecsley" }],
+  openGraph: {
+    title: "Ewerton Hecsley | Full Stack Developer",
+    description:
+      "Desenvolvedor Full Stack focado em criar soluções eficientes com React, Next.js e Node.js.",
+    type: "website",
+  },
   icons: {
-    icon: [
-      { url: "/ts-logo.svg", type: "image/svg+xml" },
-    ],
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
   },
 };
 
@@ -20,12 +36,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className="bg-black text-white antialiased">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body
+        className="antialiased"
+        style={{
+          background: "var(--bg-primary)",
+          color: "var(--text-primary)",
+        }}
+      >
         <Header />
-        {children}
-        <SpeedInsights/>
+        <main>{children}</main>
+        <SpeedInsights />
       </body>
     </html>
   );
 }
-
