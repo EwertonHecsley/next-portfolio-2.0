@@ -2,8 +2,17 @@
 
 import { useState } from "react";
 import { Reveal } from "@/components/Reveal";
+import { ProjectsNMHero } from "./ProjectsNMHero";
 
 const projects = [
+  {
+    title: "NM Laser",
+    description:
+      "CRM industrial completo com Next.js 16, NestJS e PostgreSQL. Sistema de gestão clínica com três perfis RBAC (gestora, vendas, aplicadora), autenticação OAuth2 com refresh tokens HttpOnly, BFF (Backend-for-Frontend) same-origin, controle de inventário por área, vendas de pacotes, agendamento e sessões com assinatura digital. 60k+ LOC, 186 arquivos, 29+ rotas, 27 componentes UI shadcn/ui, 4+ custom hooks, 9 serviços tipados, coberto por testes com Vitest.",
+    image: "/nm-laser/visao-geral-nm-laser.png",
+    link: "https://github.com/EwertonHecsley/frontend-nm-laser",
+    tags: ["Next.js 16", "NestJS", "PostgreSQL"],
+  },
   {
     title: "Projeto SOS Chuvas",
     description:
@@ -220,51 +229,33 @@ export function Projects() {
       }}
     >
       <div className="section-container">
-        {/* Header */}
+        {/* FIRST: NM Laser Hero Section (Always displayed first) */}
         <Reveal>
-          <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-            <div
-              className="section-label"
-              style={{ justifyContent: "center", display: "inline-flex" }}
-            >
-              <span>Portfólio</span>
-            </div>
-            <h2 className="section-title" style={{ marginTop: "0.5rem" }}>
-              Projetos em <span>destaque</span>
-            </h2>
-            <p
-              style={{
-                marginTop: "1rem",
-                maxWidth: "560px",
-                marginInline: "auto",
-                color: "var(--text-muted)",
-                lineHeight: 1.8,
-                fontSize: "0.975rem",
-              }}
-            >
-              Projetos desenvolvidos durante meus estudos e prática em
-              desenvolvimento full stack, disponíveis no GitHub.
-            </p>
+          <ProjectsNMHero />
+        </Reveal>
+
+        {/* SECOND: Projects Grid (All other projects) */}
+        <Reveal>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+              gap: "1.5rem",
+              alignItems: "stretch",
+              marginTop: "3.5rem",
+            }}
+          >
+            {projects
+              .filter(p => p.title !== "NM Laser") // Skip NM Laser (shown in hero)
+              .map((project, i) => (
+                <Reveal key={project.title} delay={i * 0.05} className="h-full">
+                  <ProjectCard project={project} />
+                </Reveal>
+              ))}
           </div>
         </Reveal>
 
-        {/* Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-            gap: "1.5rem",
-            alignItems: "stretch",
-          }}
-        >
-          {projects.map((project, i) => (
-            <Reveal key={project.title} delay={i * 0.05} className="h-full">
-              <ProjectCard project={project} />
-            </Reveal>
-          ))}
-        </div>
-
-        {/* GitHub CTA */}
+        {/* FINAL: Call to Action */}
         <Reveal>
           <div style={{ textAlign: "center", marginTop: "3.5rem" }}>
             <a
